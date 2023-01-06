@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<html>
+  <head>
+  </head>
+  <body>
+    <div class="text textclass">Move this text from right to left</div>
+
+    <div class="box-container">   
+      <div class="content-box box-borders">
+            <div class="textbox">
+              <span class="textclass letters">Please type your text here      </span>
+         </div>
+       </div>
+    </div>
+
+    <script>
+      // function moveText() {
+      //   const text = document.getElementById('text');
+      //   text.style.left = parseInt(text.style.left) - 10 + '%';
+      //   if (text.style.left !== '-100%') {
+      //     setTimeout(moveText, 50);
+      //   }
+      // }
+      // moveText();
+
+var textArea = $(".textclass");
+
+var split = new SplitText(textArea);
+
+function random(min, max) {
+    return (Math.random() * (max - min)) + min;
+}
+
+$(split.chars).each(function(i) {
+    TweenMax.from($(this), 1.5, {
+        opacity: 1,
+        x: random(-500, 500),
+        y: random(-500, 500),
+        z: random(-500, 500),
+        scale: .1,
+        delay: i * .01,
+        yoyo: true,
+        repeat: -1,
+        repeatDelay: 0.5
+    });
+});
+    </script>
+  </body>
+</html>
